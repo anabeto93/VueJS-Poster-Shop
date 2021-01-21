@@ -32,6 +32,19 @@ new Vue({
                     qty: 1
                 })
             }
+        },
+        inc(item) {
+            this.addToCart(item)
+        },
+        dec(item) {
+            this.total += item.price;
+            item.qty--;
+
+            if (item.qty <= 0) {
+                let i = this.cart.indexOf(item);
+
+                this.cart.splice(i, 1);
+            }
         }
     },
     filters: {
